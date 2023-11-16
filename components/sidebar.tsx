@@ -47,12 +47,13 @@ const routes = [
         icon: Code,
         color: "text-green-700",
         href: '/code',
-    },
-    {
-        label: 'Settings',
-        icon: Settings,
-        href: '/settings',
-    },
+    }
+    // ,
+    // {
+    //     label: 'Settings',
+    //     icon: Settings,
+    //     href: '/settings',
+    // },
 ];
 
 export const Sidebar = ({
@@ -95,8 +96,16 @@ export const Sidebar = ({
             </div>
             <FreeCounter
                 apiLimitCount={apiLimitCount}
-                isPro={isPro}
+                isPro={false}
             />
+            <div
+                className={cn(
+                    "flex items-center justify-center text-xs text-gray-500",
+                    "px-3 py-2",
+                )}
+            >
+                <span>© 2023 Endurance</span>
+            </div>
         </div>
     );
 };
