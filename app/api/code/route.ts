@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
-import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
+import { Configuration, OpenAIApi } from "openai";
 
 // import { checkSubscription } from "@/lib/subscription";
 // import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
@@ -11,10 +11,10 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const instructionMessage: ChatCompletionRequestMessage = {
-  role: "system",
-  content: "You are a code generator. You must answer only in markdown code snippets. Use code comments for explanations."
-};
+// const instructionMessage: ChatCompletionRequestMessage = {
+//   role: "system",
+//   content: "You are a code generator. You must answer only in markdown code snippets. Use code comments for explanations."
+// };
 
 export async function POST(
   req: Request
@@ -48,8 +48,13 @@ export async function POST(
 
     const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
-      messages: [instructionMessage, ...messages]
+      messages
     });
+
+    // const response = await openai.createChatCompletion({
+    //   model: "gpt-3.5-turbo",
+    //   messages: [instructionMessage, ...messages]
+    // });
 
     // if (!isPro) {
     //   await incrementApiLimit();
