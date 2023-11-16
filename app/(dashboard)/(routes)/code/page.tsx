@@ -127,12 +127,12 @@ const CodePage = () => {
                 {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                 <ReactMarkdown components={{
                   pre: ({ node, ...props }) => (
-                    <div className="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+                    <div className="overflow-auto w-full my-2 bg-[#1f2937] text-white p-3 md:px-4 rounded-lg">
                       <pre {...props} />
                     </div>
                   ),
                   code: ({ node, ...props }) => (
-                    <code className="bg-black/10 rounded-lg p-1" {...props} />
+                    <code className="bg-black/20 rounded-lg p-1" {...props} />
                   )
                 }} className="text-sm overflow-hidden leading-7">
                   {message.content || ""}
