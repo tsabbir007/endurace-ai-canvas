@@ -3,7 +3,7 @@ import { UserButton } from "@clerk/nextjs";
 import { MobileSidebar } from "@/components/mobile-sidebar";
 
 const Navbar = async () => {
-    const apiLimitCount = 10;
+    const apiLimitCount = 1;
     const isPro = true;
 
     return (
